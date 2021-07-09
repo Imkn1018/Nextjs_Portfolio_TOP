@@ -8,8 +8,13 @@
     "start": "next start"
   },
   "dependencies": {
+    "@emotion/core": "^11.0.0",
+    "@emotion/react": "^11.4.0",
     "next": "11.0.1",
     "react": "17.0.2",
-    "react-dom": "17.0.2"
+    "react-dom": "17.0.2",
+    "react-scroll": "^1.8.2",
+    "react-stickynode": "^3.1.0",
+    "theme-ui": "^0.10.0"
   }
 }
