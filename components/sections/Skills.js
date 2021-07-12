@@ -5,11 +5,11 @@ import data from "../../data/skill_data"
 
 export const Skills = () => {
   return (
-   <section sx={styles.banner} id="Skills">
+   <Heading sx={styles.banner} id="Skills">
       <Container sx={styles.banner.container}>
-        
+        <Text as="h2" >My skills</Text>
         <Box sx={styles.banner.containerBox}>
-          <Text as="h2" >My skills</Text>
+          
           <Box sx={styles.banner.contentBox}>
   {data.map((item) => (
             <Box sx={styles.banner.card}>
@@ -24,14 +24,15 @@ export const Skills = () => {
           {/* <Image src={BannerImg} alt="banner" /> */}
         </Box>
       </Container>
-    </section>
+    </Heading>
   );
 }
 
 const styles = {
   banner: {
+    mt: 5,
     backgroundColor:"#f5f5f5",
-    
+    py: 10,
     
     
     container: {
@@ -42,13 +43,15 @@ const styles = {
       alignItems: "center",
     },
     containerBox: {
+      backgroundColor: "white", 
       display:"flex",
       flexDirection:"column",
       borderRadius: 20,
-      width: ['100%', '90%', '535px', null, '57%', '60%', '68%', '60%'],
       mx: 'auto',
       my: "3",
-      p:"4",
+      pl:"8",
+      pr: 2,
+      py: 4,
       alignItems: "center",
       textAlign: 'center',
       justifyContent: "center",
@@ -59,20 +62,20 @@ const styles = {
     contentBox: {
       display:"flex",
       borderRadius: 20,
-      
+      flexWrap: "wrap",
       mx: 'auto',
       my: "3",
-      p:"4",
+      pt: 2,
       alignItems: "center",
       textAlign: 'left',
-      justifyContent: "center",
+      justifyContent: "start",
       mb: ['40px', null, null, null, null, 7],
       
       
     },
     card: {
-      p: "4",
- 
+      px: 5,
+      py: 5,
     },
     imageBox: {
       justifyContent: 'center',

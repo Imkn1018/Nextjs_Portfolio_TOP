@@ -1,62 +1,72 @@
 import React from 'react';
 import { Container, Box, Heading, Text, Image, Button } from 'theme-ui';
 
-
 export const Main = () => {
   return (
-    <section sx={styles.banner} id="home">
+    <>
+    
+    
+    <Container sx={styles.banner} id="Home">
       <Container sx={styles.banner.container}>
-        
         <Box sx={styles.banner.contentBox}>
           <Heading as="h3" variant="heroPrimary">
-            デザインで人の心を豊かにする
+            Be Emotional
           </Heading>
           <Text as="p" variant="heroSecondary">
-            
+            デザインで人の心を豊かにする
           </Text>
           
         </Box>
         <Box sx={styles.banner.imageBox}>
-          {/* <Image src={BannerImg} alt="banner" /> */}
+             <Image src="images/Be free.png"  sx={styles.banner.image} />
         </Box>
+
       </Container>
-    </section>
+    </Container>
+    </>
   )
 };
 
 const styles = {
-  banner: {
+  cover:{
     
+    width: "100%",
+    backgroundSize:"contain",
+  },
+  banner: {
     pt: ['140px', '145px', '155px', '170px', null, null, '180px', '215px'],
     pb: [2, null, 0, null, 2, 0, null, 5],
     position: 'relative',
+    mb: 8,
     zIndex: 2,
     '&::before': {
       position: 'absolute',
       content: '""',
-      bottom: 6,
-      left: 0,
+      bottom: "50%",
+      
+      right: "25%",
       height: '100%',
       width: '100%',
       zIndex: -1,
-      // backgroundImage: `url(${ShapeLeft})`,
+      backgroundImage: "url(images/shapeLeftGreen.png)",
       backgroundRepeat: `no-repeat`,
       backgroundPosition: 'bottom left',
-      backgroundSize: '36%',
+      backgroundSize: '60%',
     },
     '&::after': {
       position: 'absolute',
       content: '""',
-      bottom: '40px',
-      right: 0,
+      bottom: "40%",
+      left: "20%",
       height: '100%',
       width: '100%',
-      zIndex: -1,
-      // backgroundImage: `url(${ShapeRight})`,
+      zIndex: -100,
+      backgroundImage: "url(images/shapeRightGreen2.png)",
       backgroundRepeat: `no-repeat`,
       backgroundPosition: 'bottom right',
-      backgroundSize: '32%',
+      backgroundSize: '50%',
     },
+    
     container: {
       minHeight: 'inherit',
       display: 'flex',
@@ -68,16 +78,79 @@ const styles = {
       mx: 'auto',
       textAlign: 'center',
       mb: ['40px', null, null, null, null, 7],
+      '&::before': {
+      position: 'absolute',
+      content: '""',
+      bottom: "0%",
+      
+      left: "25%",
+      height: '100%',
+      width: '100%',
+      zIndex: -1,
+      backgroundImage: "url(images/shapeLeftBlue.png)",
+      backgroundRepeat: `no-repeat`,
+      backgroundPosition: 'top left',
+      backgroundSize: '20%',
+      },
+      '&::after': {
+        position: 'absolute',
+        content: '""',
+        bottom: "40%",
+        right: "20%",
+        height: '100%',
+        width: '100%',
+        zIndex: -100,
+        backgroundImage: "url(images/shapeRightBlue.png)",
+        backgroundRepeat: `no-repeat`,
+        backgroundPosition: 'bottom right',
+        backgroundSize: '30%',
+      },
     },
     imageBox: {
       justifyContent: 'center',
       textAlign: 'center',
       display: 'inline-flex',
+      mt:3,
       mb: [0, null, -6, null, null, '-40px', null, -3],
       img: {
         position: 'relative',
         height: [245, 'auto'],
       },
+      '&::before': {
+      position: 'absolute',
+      content: '""',
+      bottom: "45%",
+      
+      left: "18%",
+      height: '100%',
+      width: '100%',
+      zIndex: -1,
+      backgroundImage: "url(images/shapeLeftOrange.png)",
+      backgroundRepeat: `no-repeat`,
+      backgroundPosition: 'bottom left',
+      backgroundSize: '30%',
+      },
+      '&::after': {
+      position: 'absolute',
+      content: '""',
+      bottom: "80%",
+      right: "30%",
+      height: '100%',
+      width: '100%',
+      zIndex: -100,
+      backgroundImage: "url(images/shapeRightOrange.png)",
+      backgroundRepeat: `no-repeat`,
+      backgroundPosition: 'bottom right',
+      backgroundSize: '10%',
+      
+    },
+    
+    },
+    image: {
+      mt: 10,
+      backgroundSize: "50%",
+      borderRadius: 20,
+      
     },
   },
 };

@@ -4,9 +4,9 @@ import data from "../../data/blog_data.js"
 
 export const Blogs = () => {
   return (
-   <section sx={styles.banner} id="Works">
+   <Container sx={styles.banner} id="Blogs">
       <Container sx={styles.banner.container}>
-        <Text as="h2">My Blogs</Text>
+        <Text as="h2" mt={2}>My Blogs</Text>
         <Grid sx={styles.banner.grid} >
         {data.map((item) => (
           <Box sx={styles.banner.contentBox}>
@@ -19,13 +19,14 @@ export const Blogs = () => {
         </Grid>
         
       </Container>
-    </section>
+    </Container>
   );
 }
 
 const styles = {
   banner: {
-    pt: ['140px', '145px', '155px', '170px', null, null, '180px', '215px'],
+    mt: 6,
+    pt: 7,
     pb: [2, null, 0, null, 2, 0, null, 5],
     position: 'relative',
     zIndex: 2,
@@ -63,6 +64,7 @@ const styles = {
       alignItems:"center",
     },
     grid: {
+      mt:6,
     pt: [0, null, null, null, null, null, 2],
     px: [5, 6, 0, null, 7, 8, 7],
     gridGap: [

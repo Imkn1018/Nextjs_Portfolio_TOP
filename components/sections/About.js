@@ -9,15 +9,18 @@ import {
   Button,
   Image,
 } from 'theme-ui';
+import shapeLeftBlue from "../../public/images/shapeLeftBlue.png"
+import ShapeRightBlue from "../../public/images/shapeRightBlue.png"
+import ProfileImage from "../../public/images/profileImage.jpg"
 
 import {ProfileText} from "../molecules/ProfileText"
 
 export const About = () => {
   return (
-    <section sx={{ variant: 'section.services' }}>
+    <Container sx={{ variant: 'section.services' }} mt={4} pt={4} id="About">
       <Container sx={styles.containerBox}>
         <Box sx={styles.thumbnail}>
-          {/* <Image src={ServiceThumb} alt="Thumbnail" /> */}
+          <Image src="images/profileImage.jpg" alt="Thumbnail" sx={styles.profileImage} />
           
           <Box sx={styles.shapeBox}>
             {/* <Image src={shapePattern} alt="shape" /> */}
@@ -26,10 +29,10 @@ export const About = () => {
         <Box sx={styles.contentBox}>
           <ProfileText subTitle="My Profile" title="Kentaro Imai" />
          <ul>
-           <li>- 神奈川県横浜市出身</li>
-           <li>- 大学・大学院にて海洋科学を専攻</li>
-           <li>- 大学・大学院にて海洋科学を専攻</li>
-           <li>- UI・UXを意識したデザインの設計から<br/>モダンなフロントエンド開発を行っています</li>
+           <Text as="h3">- 神奈川県横浜市出身</Text><br/>
+           <Text as="h3">- 大学・大学院にて海洋科学を専攻</Text><br/>
+           <Text as="h3">- 大学・大学院にて海洋科学を専攻</Text><br/>
+           <Text as="h3">- UI・UXを意識したデザインの設計、<br/>モダンなフロントエンド開発を行っています</Text>
          </ul>
           <Grid sx={styles.grid}>
             {/* {data.features.map((feature) => (
@@ -49,7 +52,7 @@ export const About = () => {
         </Box>
       </Container>
       
-    </section>
+    </Container>
   );
 }
 
@@ -61,11 +64,39 @@ const styles = {
     position: 'relative',
   },
   containerBox: {
+    mt:6,
+    pt:6,
     display: 'flex',
     alignItems: ['flex-start', null, null, 'center'],
     justifyContent: ['flex-start', null, null, 'space-between'],
     flexDirection: ['column', null, null, 'row'],
     pb: [0, null, null, null, null, 7],
+    '&::before': {
+      position: 'absolute',
+      content: '""',
+      top: "100%",
+      right: "20%",
+      height: '100%',
+      width: '100%',
+      zIndex: -1,
+      backgroundImage: "url(images/shapeLeftBlue.png)",
+      backgroundRepeat: `no-repeat`,
+      backgroundPosition: 'bottom left',
+      backgroundSize: '50%',
+    },
+    '&::after': {
+      position: 'absolute',
+      content: '""',
+      top: "200%",
+      left: "20%",
+      height: '100%',
+      width: '100%',
+      zIndex: -1000,
+      backgroundImage: "url(images/shapeRightBlue.png)",
+      backgroundRepeat: `no-repeat`,
+      backgroundPosition: 'bottom right',
+      backgroundSize: '50%',
+    },
   },
   thumbnail: {
     mr: ['auto', null, null, 6, 60, 85],
@@ -78,6 +109,10 @@ const styles = {
       zIndex: 1,
       height: [310, 'auto'],
     },
+  },
+  profileImage: {
+    zIndex:1,
+    borderRadius: 20,
   },
   shapeBox: {
     position: 'absolute',
@@ -133,6 +168,8 @@ const styles = {
     flexShrink: 0,
     mb: [7, null, 60, 0],
     textAlign: ['center', null, null, 'left'],
+    zindex:10,
+    
   },
   grid: {
     pr: [2, 0, null, null, 6, '70px'],

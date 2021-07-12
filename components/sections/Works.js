@@ -4,40 +4,44 @@ import data from "../../data/works_data.js"
 
 export const Works = () => {
   return (
-   <section sx={styles.banner} id="Works">
+   <Container sx={styles.banner} id="Works">
       <Container sx={styles.banner.container}>
-        <Text as="h2">My Works</Text>
+        <Text as="h1" py={5} mb={3}>My Works</Text>
         <Box sx={styles.wrapper} >
         {data.map((item) => (
           <Box sx={styles.banner.contentBox}>
             <Image src={item.image}/>
-            <Text as="h2" pt={3} textAlign="start">{item.title}</Text>
-            <Text as="h4" pt={1}>{item.description}</Text>
-            <Text as="p">{item.createdDate}</Text>
+            <Text as="h2" pt={3} pl={3} textAlign="left" >{item.title}</Text>
+            <Text as="h4" py={1} px={3}>{item.description}</Text>
+            <Box sx={styles.banner.contentBox.endText}>
+              <Box></Box>
+              <Text as="p"  pt={3} >{item.createdDate}</Text>
+            </Box>
           </Box>
         ))}
         </Box>
         
       </Container>
-    </section>
+    </Container>
   );
 }
 
 const styles = {
   banner: {
-    pt: ['140px', '145px', '155px', '170px', null, null, '180px', '215px'],
+    
+    // pt: ['140px', '145px', '155px', '170px', null, null, '180px', '215px'],
     pb: [2, null, 0, null, 2, 0, null, 5],
     position: 'relative',
     zIndex: 2,
     '&::before': {
       position: 'absolute',
       content: '""',
-      bottom: 6,
-      left: 0,
+      bottom: "20%",
+      right: "10%",
       height: '100%',
       width: '100%',
-      zIndex: -1,
-      // backgroundImage: `url(${ShapeLeft})`,
+      zIndex: -100,
+      backgroundImage: "url(images/shapeLeftOrange.png)",
       backgroundRepeat: `no-repeat`,
       backgroundPosition: 'bottom left',
       backgroundSize: '36%',
@@ -63,6 +67,8 @@ const styles = {
       alignItems:"center",
     },
     wrapper: {
+      mt: 5,
+      pt: 4,
       display:"flex",
       justifyContent:"left",
       
@@ -70,14 +76,27 @@ const styles = {
     contentBox: {
       display:"flex",
       borderRadius: 20,
-      width:"500px",
+      width:"400px",
       height:"500px",
       boxShadow:"0px 4px 25px rgba(38, 78, 118, 0.1) " ,
-      p: "4",
+      p: 4,
       flexDirection:"column",
       mx: 'auto',
-      textAlign: 'center',
+      
       mb: ['40px', null, null, null, null, 7],
+      img: {
+        height: "50%",
+      },
+      Text: {
+        px: 5,
+        
+      },
+      endText: {
+        mt:3,
+        display: "flex",
+        justifyContent: "space-between",
+      },
+      
     },
     imageBox: {
       justifyContent: 'center',

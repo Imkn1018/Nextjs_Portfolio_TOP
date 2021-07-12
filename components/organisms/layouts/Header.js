@@ -3,6 +3,7 @@ import React from 'react';
 import { jsx, Container, Flex, Button,Heading } from 'theme-ui';
 import { keyframes } from '@emotion/react';
 import { Link } from 'react-scroll';
+import MobileDrawer from './MobileDrawer';
 
 import menuItems from '../../../data/header_data';
 
@@ -10,7 +11,7 @@ export const Header = ({ className }) => {
   return (
     <Heading sx={styles.header} className={className} id="header">
       <Container sx={styles.container}>
-       
+               {/* <Logo src={LogoDark} /> */}
         <Flex as="nav" sx={styles.nav}>
           {menuItems.map((menuItem, i) => (
             <Link
@@ -21,19 +22,20 @@ export const Header = ({ className }) => {
               offset={-70}
               duration={500}
               key={i}
+        
             >
               {menuItem.label}
             </Link>
           ))}
         </Flex>
-        <Button
+        {/* <Button
           className="donate_btn"
           variant="secondary"
           aria-label="donate_btn"
         >
           Get Started
-        </Button>
-        {/* <MobileDrawer /> */}
+        </Button> */}
+        <MobileDrawer />
       </Container>
     </Heading>
   );
@@ -62,7 +64,7 @@ const styles = {
     position: 'absolute',
     top: 0,
     left: 0,
-    backgroundColor: 'white',
+    backgroundColor: 'transparent',
     transition: 'all 0.4s ease',
     animation: `${positionAnim} 0.4s ease`,
     '.donate__btn': {
@@ -81,6 +83,7 @@ const styles = {
       },
     },
   },
+  
   container: {
     
     display: 'flex',
@@ -94,7 +97,7 @@ const styles = {
       display: 'block',
     },
     a: {
-      fontSize: 2,
+      fontSize: 6,
       fontWeight: 'body',
       px: 5,
       cursor: 'pointer',

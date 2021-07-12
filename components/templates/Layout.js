@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { Header } from '../organisms/layouts/Header';
+import { Footer } from '../organisms/layouts/Footer';
+
 import Sticky from 'react-stickynode';
 
 export const Layout = ({ children }) => {
@@ -21,7 +23,7 @@ export const Layout = ({ children }) => {
       <main id="content" sx={{ variant: 'layout.main' }}>
         {children}
       </main>
-      {/* <Footer /> */}
+      <Footer />
     </React.Fragment>
   );
 };
