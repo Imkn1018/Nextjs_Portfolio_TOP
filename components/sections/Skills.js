@@ -31,11 +31,12 @@ export const Skills = () => {
 const styles = {
   banner: {
     mt: 5,
-    backgroundColor:"#f5f5f5",
+    
     py: 10,
     
     
     container: {
+      backgroundColor:"white",
       minHeight: 'inherit',
       display: 'flex',
       flexDirection: 'column',

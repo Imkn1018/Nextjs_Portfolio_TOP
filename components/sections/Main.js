@@ -81,7 +81,7 @@ const styles = {
       '&::before': {
       position: 'absolute',
       content: '""',
-      bottom: "0%",
+      top: "5%",
       
       left: "25%",
       height: '100%',
@@ -90,7 +90,7 @@ const styles = {
       backgroundImage: "url(images/shapeLeftBlue.png)",
       backgroundRepeat: `no-repeat`,
       backgroundPosition: 'top left',
-      backgroundSize: '20%',
+      backgroundSize: '10%',
       },
       '&::after': {
         position: 'absolute',

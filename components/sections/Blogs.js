@@ -33,15 +33,15 @@ const styles = {
     '&::before': {
       position: 'absolute',
       content: '""',
-      bottom: 6,
-      left: 0,
+      bottom: "30%",
+      right:"30%",
       height: '100%',
       width: '100%',
       zIndex: -1,
-      // backgroundImage: `url(${ShapeLeft})`,
+      backgroundImage: "url(images/shapeLeftGreen2.svg)",
       backgroundRepeat: `no-repeat`,
-      backgroundPosition: 'bottom left',
-      backgroundSize: '36%',
+      backgroundPosition: 'top left',
+      backgroundSize: '50%',
     },
     '&::after': {
       position: 'absolute',
@@ -80,6 +80,7 @@ const styles = {
     gridTemplateColumns: ['repeat(1,1fr)', null, 'repeat(2,1fr)'],
   },
     contentBox: {
+      backgroundColor:"white",
       display:"flex",
       borderRadius: 20,
       width:"400px",

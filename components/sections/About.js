@@ -64,6 +64,7 @@ const styles = {
     position: 'relative',
   },
   containerBox: {
+    
     mt:6,
     pt:6,
     display: 'flex',
@@ -74,20 +75,20 @@ const styles = {
     '&::before': {
       position: 'absolute',
       content: '""',
-      top: "100%",
+      top: "80%",
       right: "20%",
       height: '100%',
       width: '100%',
       zIndex: -1,
       backgroundImage: "url(images/shapeLeftBlue.png)",
       backgroundRepeat: `no-repeat`,
-      backgroundPosition: 'bottom left',
+      backgroundPosition: 'top left',
       backgroundSize: '50%',
     },
     '&::after': {
       position: 'absolute',
       content: '""',
-      top: "200%",
+      top: "150%",
       left: "20%",
       height: '100%',
       width: '100%',
@@ -111,7 +112,7 @@ const styles = {
     },
   },
   profileImage: {
-    zIndex:1,
+    zIndex:100,
     borderRadius: 20,
   },
   shapeBox: {
