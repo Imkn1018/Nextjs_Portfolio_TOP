@@ -153,13 +153,13 @@ const styles = {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-
+    mb: 5,
     icon: {
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
       color: 'text',
-      fontSize: 14,
+      fontSize: 30,
       mr: '15px',
       transition: 'all 0.25s',
       cursor: 'pointer',

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { jsx, Container, Flex, Button,Heading } from 'theme-ui';
+import { jsx, Container, Flex, Button, Heading, Image } from 'theme-ui';
 import { keyframes } from '@emotion/react';
 import { Link } from 'react-scroll';
 import MobileDrawer from './MobileDrawer';
@@ -11,7 +11,7 @@ export const Header = ({ className }) => {
   return (
     <Heading sx={styles.header} className={className} id="header">
       <Container sx={styles.container}>
-               {/* <Logo src={LogoDark} /> */}
+        <Image src="images/logo.svg" />
         <Flex as="nav" sx={styles.nav}>
           {menuItems.map((menuItem, i) => (
             <Link
@@ -22,7 +22,6 @@ export const Header = ({ className }) => {
               offset={-70}
               duration={500}
               key={i}
-        
             >
               {menuItem.label}
             </Link>
@@ -83,16 +82,17 @@ const styles = {
       },
     },
   },
-  
+
   container: {
-    
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'space-between',
   },
   nav: {
-    mx: "auto",
-    display: 'none',
+    mx: 'auto',
+    '@media screen and (max-width: 1024px)': {
+      display: 'none',
+    },
     '@media screen and (min-width: 1024px)': {
       display: 'block',
     },

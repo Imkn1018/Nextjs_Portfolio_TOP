@@ -1,28 +1,53 @@
-import { jsx, Box, Container, Image, Text,Heading } from 'theme-ui';
+import { Link } from 'react-scroll';
+
+import { jsx, Box, Container, Image, Text, Heading } from 'theme-ui';
 // import { Link } from 'components/link';
 import data from '../../../data/footer_data.js';
 // import FooterLogo from 'assets/logo.svg';
+import {
+  FaFacebookF,
+  FaTwitter,
+  FaGithubAlt,
+  FaDribbble,
+} from 'react-icons/fa';
+
+const social = [
+  {
+    path: '/',
+    icon: <FaFacebookF />,
+  },
+  {
+    path: '/',
+    icon: <FaTwitter />,
+  },
+  {
+    path: '/',
+    icon: <FaGithubAlt />,
+  },
+  {
+    path: '/',
+    icon: <FaDribbble />,
+  },
+];
 
 export const Footer = () => {
   return (
     <Heading sx={styles.footer}>
       <Container>
         <Box sx={styles.footer.footerBottomArea}>
-          {/* <Link path="/">
-            {/* <Image src={FooterLogo} alt="logo" /> */}
-          {/* </Link> */} */}
-          {/* <Box sx={styles.footer.menus}>
-            <nav>
-              {data.menuItem.map((item, i) => (
-                <Link
-                  path={item.path}
-                  key={i}
-                  label={item.label}
-                  sx={styles.footer.link}
-                />
+          <Text as="h4" pb={3} mb={5}>
+            Kentaro Imai
+          </Text>
+
+          <Box sx={styles.menuFooter}>
+            <Box sx={styles.social}>
+              {social.map((socialItem, i) => (
+                <Box as="span" key={i} sx={styles.social.icon}>
+                  <Link to={socialItem.path}>{socialItem.icon}</Link>
+                </Box>
               ))}
-            </nav>
-          </Box> */}
+            </Box>
+          </Box>
           <Text sx={styles.footer.copyright}>
             Copyright by {new Date().getFullYear()}
           </Text>
@@ -30,7 +55,7 @@ export const Footer = () => {
       </Container>
     </Heading>
   );
-}
+};
 
 const styles = {
   footer: {
@@ -72,6 +97,38 @@ const styles = {
     copyright: {
       fontSize: [1, '15px'],
       width: '100%',
+    },
+  },
+
+  menuFooter: {
+    width: '100%',
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    mt: 'auto',
+  },
+
+  social: {
+    width: '100%',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    mb: 5,
+    icon: {
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      color: 'text',
+      fontSize: 30,
+      mr: '15px',
+      transition: 'all 0.25s',
+      cursor: 'pointer',
+      ':last-child': {
+        mr: '0',
+      },
+      '&:hover': {
+        color: 'secondary',
+      },
     },
   },
 };

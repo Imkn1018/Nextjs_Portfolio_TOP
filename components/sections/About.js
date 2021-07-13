@@ -9,31 +9,42 @@ import {
   Button,
   Image,
 } from 'theme-ui';
-import shapeLeftBlue from "../../public/images/shapeLeftBlue.png"
-import ShapeRightBlue from "../../public/images/shapeRightBlue.png"
-import ProfileImage from "../../public/images/profileImage.jpg"
+import shapeLeftBlue from '../../public/images/shapeLeftBlue.png';
+import ShapeRightBlue from '../../public/images/shapeRightBlue.png';
+import ProfileImage from '../../public/images/profileImage.jpg';
 
-import {ProfileText} from "../molecules/ProfileText"
+import { ProfileText } from '../molecules/ProfileText';
 
 export const About = () => {
   return (
     <Container sx={{ variant: 'section.services' }} mt={4} pt={4} id="About">
       <Container sx={styles.containerBox}>
         <Box sx={styles.thumbnail}>
-          <Image src="images/profileImage.jpg" alt="Thumbnail" sx={styles.profileImage} />
-          
+          <Image
+            src="images/profileImage.jpg"
+            alt="Thumbnail"
+            sx={styles.profileImage}
+          />
+
           <Box sx={styles.shapeBox}>
             {/* <Image src={shapePattern} alt="shape" /> */}
           </Box>
         </Box>
         <Box sx={styles.contentBox}>
           <ProfileText subTitle="My Profile" title="Kentaro Imai" />
-         <ul>
-           <Text as="h3">- 神奈川県横浜市出身</Text><br/>
-           <Text as="h3">- 大学・大学院にて海洋科学を専攻</Text><br/>
-           <Text as="h3">- 大学・大学院にて海洋科学を専攻</Text><br/>
-           <Text as="h3">- UI・UXを意識したデザインの設計、<br/>モダンなフロントエンド開発を行っています</Text>
-         </ul>
+          <ul>
+            <Text as="h3">- 神奈川県横浜市出身</Text>
+            <br />
+            <Text as="h3">- 大学・大学院にて海洋科学を専攻</Text>
+            <br />
+            <Text as="h3">- 大学・大学院にて海洋科学を専攻</Text>
+            <br />
+            <Text as="h3">
+              - UI・UXを意識したデザインの設計、
+              <br />
+              モダンなフロントエンド開発を行っています
+            </Text>
+          </ul>
           <Grid sx={styles.grid}>
             {/* {data.features.map((feature) => (
               <Box sx={styles.card} key={styles.id}>
@@ -51,12 +62,9 @@ export const About = () => {
           </Grid>
         </Box>
       </Container>
-      
     </Container>
   );
-}
-
-
+};
 
 const styles = {
   coreFeature: {
@@ -64,23 +72,22 @@ const styles = {
     position: 'relative',
   },
   containerBox: {
-    
-    mt:6,
-    pt:6,
+    mt: 6,
+    pt: 6,
     display: 'flex',
     alignItems: ['flex-start', null, null, 'center'],
     justifyContent: ['flex-start', null, null, 'space-between'],
     flexDirection: ['column', null, null, 'row'],
-    pb: [0, null, null, null, null, 7],
+    // pb: [0, null, null, null, null, 7],
     '&::before': {
       position: 'absolute',
       content: '""',
-      top: "80%",
-      right: "20%",
+      top: '80%',
+      right: '20%',
       height: '100%',
       width: '100%',
       zIndex: -1,
-      backgroundImage: "url(images/shapeLeftBlue.png)",
+      backgroundImage: 'url(images/shapeLeftBlue.png)',
       backgroundRepeat: `no-repeat`,
       backgroundPosition: 'top left',
       backgroundSize: '50%',
@@ -88,12 +95,12 @@ const styles = {
     '&::after': {
       position: 'absolute',
       content: '""',
-      top: "150%",
-      left: "20%",
+      top: '120%',
+      left: '20%',
       height: '100%',
       width: '100%',
       zIndex: -1000,
-      backgroundImage: "url(images/shapeRightBlue.png)",
+      backgroundImage: 'url(images/shapeRightBlue.png)',
       backgroundRepeat: `no-repeat`,
       backgroundPosition: 'bottom right',
       backgroundSize: '50%',
@@ -112,8 +119,9 @@ const styles = {
     },
   },
   profileImage: {
-    zIndex:100,
+    zIndex: 100,
     borderRadius: 20,
+    position: 'absolute',
   },
   shapeBox: {
     position: 'absolute',
@@ -169,8 +177,7 @@ const styles = {
     flexShrink: 0,
     mb: [7, null, 60, 0],
     textAlign: ['center', null, null, 'left'],
-    zindex:10,
-    
+    zindex: 10,
   },
   grid: {
     pr: [2, 0, null, null, 6, '70px'],
