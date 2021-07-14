@@ -59,6 +59,7 @@ export const Footer = () => {
 
 const styles = {
   footer: {
+    mt: 8,
     footerBottomArea: {
       borderTop: '1px solid',
       borderTopColor: 'border_color',

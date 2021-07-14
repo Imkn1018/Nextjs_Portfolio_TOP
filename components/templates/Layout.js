@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Header } from '../organisms/layouts/Header';
 import { Footer } from '../organisms/layouts/Footer';
 

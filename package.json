@@ -10,6 +10,7 @@
   "dependencies": {
     "@emotion/core": "^11.0.0",
     "@emotion/react": "^11.4.0",
+    "gsap": "^3.7.0",
     "imagemin-mozjpeg": "^9.0.0",
     "imagemin-optipng": "^8.0.0",
     "next": "11.0.1",
@@ -22,6 +23,7 @@
     "react-icons": "^4.2.0",
     "react-scroll": "^1.8.2",
     "react-stickynode": "^3.1.0",
+    "scrollreveal": "^4.0.9",
     "theme-ui": "^0.10.0"
   }
 }
