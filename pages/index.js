@@ -61,7 +61,7 @@ export default function Home() {
         <div className="skills">
           <Skills />
         </div>
-        <Blogs />
+        {/* <Blogs /> */}
       </Layout>
     </ThemeProvider>
   );

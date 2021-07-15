@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Box, Heading, Text, Image, Button } from 'theme-ui';
+import { Container, Box, Heading, Text, Image, Button, Grid } from 'theme-ui';
 import data from '../../data/works_data.js';
 import { useEffect, useRef } from 'react';
 
@@ -41,7 +41,7 @@ export const Works = () => {
         <Text as="h1" pb={5} mb={3}>
           My Works
         </Text>
-        <Box sx={styles.wrapper}>
+        <Grid sx={styles.banner.grid}>
           {data.map((item) => (
             <Box sx={styles.banner.contentBox}>
               <Image src={item.image} />
@@ -59,7 +59,7 @@ export const Works = () => {
               </Box>
             </Box>
           ))}
-        </Box>
+        </Grid>
       </Container>
     </Container>
   );
@@ -105,11 +105,21 @@ const styles = {
       justifyContent: 'center',
       alignItems: 'center',
     },
-    wrapper: {
-      mt: 5,
-      pt: 4,
-      display: 'flex',
-      justifyContent: 'left',
+    grid: {
+      mt: 6,
+      pt: [0, null, null, null, null, null, 2],
+      px: [5, 6, 0, null, 7, 8, 7],
+      gridGap: [
+        '40px 0',
+        null,
+        '45px 30px',
+        null,
+        '60px 50px',
+        '70px 50px',
+        null,
+        '80px 90px',
+      ],
+      gridTemplateColumns: ['repeat(1,1fr)', null, 'repeat(2,1fr)'],
     },
     contentBox: {
       backgroundColor: 'white',
