@@ -1,16 +1,49 @@
 import React from 'react';
 import { Container, Box, Heading, Text, Image, Button } from 'theme-ui';
 
+import { useEffect, useRef } from 'react';
+
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 export const Main = () => {
+  useEffect(() => {
+    if (process.browser) {
+      gsap.registerPlugin(ScrollTrigger);
+      setAnimation();
+    }
+  }, []);
+  const setAnimation = () => {
+    gsap.fromTo(
+      '.main',
+      { opacity: 0, y: 10 }, //fromの設定
+      {
+        //toの設定
+        opacity: 1,
+        y: 0,
+        duration: 2,
+        scrollTrigger: {
+          trigger: '.main',
+          start: 'top center', //要素のトップが、画面の中央まできたら開始
+          end: 'bottom center', //要素のボトムが、画面の中央まできたら終了
+          onEnter: () => {
+            console.log('scroll In');
+          },
+          onEnterBack: () => {
+            console.log('scroll Back');
+          },
+        },
+      }
+    );
+  };
   return (
     <>
-      <Container sx={styles.banner} id="Home">
+      <Container sx={styles.banner} id="Home" className="main">
         <Container sx={styles.banner.container}>
           <Box sx={styles.banner.contentBox}>
             <Heading as="h3" variant="heroPrimary">
               Be Emotional
             </Heading>
-            <Text as="p" variant="heroSecondary">
+            <Text as="p" variant="heroSecondary" color="gray">
               デザインで人の心を豊かにする
             </Text>
           </Box>
@@ -39,7 +72,7 @@ const styles = {
       content: '""',
       bottom: '50%',
 
-      right: '25%',
+      right: '30%',
       height: '100%',
       width: '100%',
       zIndex: -1,

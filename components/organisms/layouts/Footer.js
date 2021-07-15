@@ -13,20 +13,16 @@ import {
 
 const social = [
   {
-    path: '/',
+    path: 'https://www.facebook.com/profile.php?id=100010857344034',
     icon: <FaFacebookF />,
   },
   {
-    path: '/',
+    path: 'https://twitter.com/imkm1018',
     icon: <FaTwitter />,
   },
   {
-    path: '/',
+    path: 'https://github.com/Imkn1018',
     icon: <FaGithubAlt />,
-  },
-  {
-    path: '/',
-    icon: <FaDribbble />,
   },
 ];
 

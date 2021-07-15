@@ -2,8 +2,41 @@ import React from 'react';
 import { Container, Box, Heading, Text, Button, Image } from 'theme-ui';
 
 import data from '../../data/skill_data';
+import { useEffect, useRef } from 'react';
+
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 
 export const Skills = () => {
+  useEffect(() => {
+    if (process.browser) {
+      gsap.registerPlugin(ScrollTrigger);
+      setAnimation();
+    }
+  }, []);
+  const setAnimation = () => {
+    gsap.fromTo(
+      '#Skills',
+      { opacity: 0, y: 10 }, //fromの設定
+      {
+        //toの設定
+        opacity: 1,
+        y: 0,
+        duration: 2,
+        scrollTrigger: {
+          trigger: '#Skills',
+          start: 'top center', //要素のトップが、画面の中央まできたら開始
+          end: 'bottom center', //要素のボトムが、画面の中央まできたら終了
+          onEnter: () => {
+            console.log('scroll In');
+          },
+          onEnterBack: () => {
+            console.log('scroll Back');
+          },
+        },
+      }
+    );
+  };
   return (
     <Heading sx={styles.banner} id="Skills">
       <Container sx={styles.banner.container}>
@@ -30,35 +63,35 @@ const styles = {
     mt: 5,
     mx: 'auto',
     py: 10,
+    zindex: 100,
     '&::before': {
       position: 'absolute',
       content: '""',
-      top: '320%',
-
-      left: '10%',
+      bottom: '0%',
+      right: '20%',
       height: '100%',
       width: '100%',
-      zIndex: -1,
-      backgroundImage: 'url(images/shapeLeftBlue.png)',
+      zIndex: -100,
+      backgroundImage: 'url(images/shapeLeftOrange.png)',
+
       backgroundRepeat: `no-repeat`,
       backgroundPosition: 'top left',
-      backgroundSize: '20%',
+      backgroundSize: '40%',
     },
     '&::after': {
       position: 'absolute',
       content: '""',
-      top: '366%',
-      right: '15%',
+      top: '20%',
+      left: '20%',
       height: '100%',
       width: '100%',
       zIndex: -100,
-      backgroundImage: 'url(images/shapeRightBlue.png)',
+      backgroundImage: 'url(images/shapeRightOrange.png)',
       backgroundRepeat: `no-repeat`,
       backgroundPosition: 'bottom right',
-      backgroundSize: '20%',
+      backgroundSize: '40%',
     },
     container: {
-      backgroundColor: 'white',
       minHeight: 'inherit',
       display: 'flex',
       flexDirection: 'column',

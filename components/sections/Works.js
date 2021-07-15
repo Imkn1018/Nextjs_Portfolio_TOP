@@ -1,10 +1,42 @@
 import React from 'react';
 import { Container, Box, Heading, Text, Image, Button } from 'theme-ui';
 import data from '../../data/works_data.js';
+import { useEffect, useRef } from 'react';
 
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 export const Works = () => {
+  useEffect(() => {
+    if (process.browser) {
+      gsap.registerPlugin(ScrollTrigger);
+      setAnimation();
+    }
+  }, []);
+  const setAnimation = () => {
+    gsap.fromTo(
+      '.works',
+      { opacity: 0, y: 10 }, //fromの設定
+      {
+        //toの設定
+        opacity: 1,
+        y: 0,
+        duration: 2,
+        scrollTrigger: {
+          trigger: '.works',
+          start: 'top center', //要素のトップが、画面の中央まできたら開始
+          end: 'bottom center', //要素のボトムが、画面の中央まできたら終了
+          onEnter: () => {
+            console.log('scroll In');
+          },
+          onEnterBack: () => {
+            console.log('scroll Back');
+          },
+        },
+      }
+    );
+  };
   return (
-    <Container sx={styles.banner} id="Works">
+    <Container sx={styles.banner} id="Works" className="works">
       <Container sx={styles.banner.container}>
         <Text as="h1" pb={5} mb={3}>
           My Works
@@ -42,7 +74,7 @@ const styles = {
     '&::before': {
       position: 'absolute',
       content: '""',
-      bottom: '20%',
+      bottom: '0%',
       right: '20%',
       height: '100%',
       width: '100%',
@@ -56,7 +88,7 @@ const styles = {
     '&::after': {
       position: 'absolute',
       content: '""',
-      top: '40%',
+      top: '20%',
       left: '20%',
       height: '100%',
       width: '100%',

@@ -11,7 +11,7 @@ export const Header = ({ className }) => {
   return (
     <Heading sx={styles.header} className={className} id="header">
       <Container sx={styles.container}>
-        <Image src="images/logo.svg" />
+        <Image src="images/headerLogo.png" sx={styles.headerLogo} />
         <Flex as="nav" sx={styles.nav}>
           {menuItems.map((menuItem, i) => (
             <Link
@@ -55,6 +55,10 @@ const positionAnim = keyframes`
 `;
 
 const styles = {
+  headerLogo: {
+    height: '80px',
+    width: '200px',
+  },
   header: {
     color: 'text',
     fontWeight: 'body',

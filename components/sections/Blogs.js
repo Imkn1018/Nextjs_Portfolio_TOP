@@ -1,8 +1,40 @@
 import React from 'react';
 import { Container, Box, Heading, Text, Image, Button, Grid } from 'theme-ui';
 import data from '../../data/blog_data.js';
+import { useEffect, useRef } from 'react';
 
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 export const Blogs = () => {
+  useEffect(() => {
+    if (process.browser) {
+      gsap.registerPlugin(ScrollTrigger);
+      setAnimation();
+    }
+  }, []);
+  const setAnimation = () => {
+    gsap.fromTo(
+      '#Blogs',
+      { opacity: 0, y: 10 }, //fromの設定
+      {
+        //toの設定
+        opacity: 1,
+        y: 0,
+        duration: 2,
+        scrollTrigger: {
+          trigger: '#Blogs',
+          start: 'top center', //要素のトップが、画面の中央まできたら開始
+          end: 'bottom center', //要素のボトムが、画面の中央まできたら終了
+          onEnter: () => {
+            console.log('scroll In');
+          },
+          onEnterBack: () => {
+            console.log('scroll Back');
+          },
+        },
+      }
+    );
+  };
   return (
     <Container sx={styles.banner} id="Blogs">
       <Container sx={styles.banner.container}>
@@ -38,15 +70,15 @@ const styles = {
     '&::before': {
       position: 'absolute',
       content: '""',
-      bottom: '30%',
-      right: '30%',
+      bottom: '10%',
+      right: '20%',
       height: '100%',
       width: '100%',
       zIndex: -1,
-      backgroundImage: 'url(images/shapeLeftGreen2.svg)',
+      backgroundImage: 'url(images/shapeRightGreen2.png)',
       backgroundRepeat: `no-repeat`,
       backgroundPosition: 'top left',
-      backgroundSize: '40%',
+      backgroundSize: '50%',
     },
     '&::after': {
       position: 'absolute',

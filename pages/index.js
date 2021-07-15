@@ -25,7 +25,7 @@ export default function Home() {
   }, []);
   const setAnimation = () => {
     gsap.fromTo(
-      '.section',
+      ['.section', '.skills'],
       { opacity: 0, y: 10 }, //fromの設定
       {
         //toの設定
@@ -55,11 +55,12 @@ export default function Home() {
         <div className="section">
           <About />
         </div>
-        <div className="section" ref={ref}>
+        <div className="section">
           <Works />
         </div>
-
-        <Skills />
+        <div className="skills">
+          <Skills />
+        </div>
         <Blogs />
       </Layout>
     </ThemeProvider>
