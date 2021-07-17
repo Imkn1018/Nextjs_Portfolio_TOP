@@ -4,7 +4,7 @@ import { ThemeProvider } from 'theme-ui';
 import theme from '../styles/index.js';
 import { Layout } from '../components/templates/Layout';
 
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
@@ -16,8 +16,10 @@ import { Skills } from '../components/sections/Skills';
 import { Blogs } from '../components/sections/Blogs';
 
 export default function Home() {
-  const ref = useRef(null);
+  const [loading, setLoading] = useState(true);
+
   useEffect(() => {
+    setLoading(false);
     if (process.browser) {
       gsap.registerPlugin(ScrollTrigger);
       setAnimation();
@@ -48,21 +50,25 @@ export default function Home() {
   };
   return (
     <ThemeProvider theme={theme}>
-      <Layout>
-        <div>
-          <Main />
-        </div>
-        <div className="section">
-          <About />
-        </div>
-        <div className="section">
-          <Works />
-        </div>
-        <div className="skills">
-          <Skills />
-        </div>
-        {/* <Blogs /> */}
-      </Layout>
+      {loading ? (
+        <div>Loading</div>
+      ) : (
+        <Layout>
+          <div>
+            <Main />
+          </div>
+          <div className="section">
+            <About />
+          </div>
+          <div className="section">
+            <Works />
+          </div>
+          <div className="skills">
+            <Skills />
+          </div>
+          {/* <Blogs /> */}
+        </Layout>
+      )}
     </ThemeProvider>
   );
 }
