@@ -15,8 +15,8 @@ export default [
     path: 'Skills',
     label: 'Skills',
   },
-  {
-    path: 'Blogs',
-    label: 'Blogs',
-  },
+  // {
+  //   path: 'Blogs',
+  //   label: 'Blogs',
+  // },
 ];
