@@ -82,7 +82,7 @@ const styles = {
     '&::before': {
       position: 'absolute',
       content: '""',
-      bottom: '20%',
+      top: '100%',
       right: '20%',
       height: '100%',
       width: '100%',
@@ -95,7 +95,7 @@ const styles = {
     '&::after': {
       position: 'absolute',
       content: '""',
-      top: '60%',
+      top: '70%',
       left: '20%',
       height: '100%',
       width: '100%',
